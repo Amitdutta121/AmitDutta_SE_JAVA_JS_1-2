@@ -1,141 +1,132 @@
 const express = require('express');
 const Router = express.Router();
-const mysqlConnection = require('../connection');
-const {productValidation, isRequestedValidated} = require('../validator/productValidaton');
+const knex = require('knex')(require('../knexfile'))
+const validator = require('validator');
+
+
+
 
 Router.get('/', (req, res)=>{
-    mysqlConnection.query("SELECT * from products", (err, rows, fields)=>{
-        if(!err){
-            res.json({
-                msg: "success",
-                data : rows
-            });
-        }else{
-            res.json({
-                msg: "Database Error"
-            });
-        }
+    knex.select().from('products').then((data)=>{
+        res.json({
+            msg:"success",
+            data:data
+        });
     })
 })
 
 Router.get('/singleProduct/:id', (req, res)=>{
-    mysqlConnection.query("SELECT * from products WHERE id= ?",[req.params.id], (err, rows, fields)=>{
-        if(!err){
-            res.json({
-                msg: "success",
-                data : rows
-            });
-        }else{
-            res.json({
-                msg: "Database Error"
-            });
-        }
+
+    knex('products').where('id', req.params.id).then((data)=>{
+        res.json({
+            msg:"success",
+            data: data
+        })
     })
 })
 
 Router.delete('/:id', (req, res)=>{
-    mysqlConnection.query("DELETE from products WHERE id= ?",[req.params.id], (err, rows, fields)=>{
-        if(!err){
+    knex('products')
+    .where('id', req.params.id)
+    .del().then(()=>{
+        knex.select().from('products').then((data)=>{
             res.json({
-                msg: "success",
-                data : "Successfully Deleted"
+                msg:"success",
+                data:data
             });
-        }else{
-            res.json({
-                msg: "Database Error"
-            });
-        }
+        })
     })
 })
 
-Router.post('/addProduct',productValidation,isRequestedValidated,(req, res)=>{
-    const errors = validationResult(req)
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
-      }
-      else{
-        mysqlConnection.query(`INSERT INTO products VALUES ('','${req.body.name}', '${req.body.price}','${req.body.profit}','${req.body.category}')`, (err, rows, fields)=>{
-            if(!err){
+Router.post('/addProduct',(req, res)=>{
+    if(req.body.hasOwnProperty('config')){
+        if(req.body.config.hasOwnProperty("username") && req.body.config.hasOwnProperty("password")){
+        knex('users').where({
+            username: req.body.config.username,
+            password:  req.body.config.password
+          }).select('type').then((data)=>{
+              if(data.length > 0 && data[0].type == 'admin'){
+                knex('products').insert({product_name: req.body.name, 
+                    product_price:req.body.price, 
+                    profit_percentage:req.body.profit, 
+                    product_type: req.body.category }).then((data)=>{
+                        res.json({
+                            msg: "Successfully Added",
+                            data : req.body
+                        })
+                    })
+              }
+              else{
                 res.json({
-                    msg: "Successfully Added",
-                    data : req.body
+                    msg:"Access Denied"
                 });
-            }else{
-                res.json({
-                    msg: "Database Error"
-                });
-            }
-        })
-}
+              }
+              
+          })
+        }else{
+            res.json({
+                msg:"Access Denied"
+            });
+        }
+    }else{
+        res.json({
+            msg:"Access Denied"
+        });
+    }
     
 })
 
 Router.post('/editProduct/:id', (req, res)=>{
 
-    mysqlConnection.query("SELECT * from products WHERE id= ?",[req.params.id], (err, rows, fields)=>{
-        if(!err){
-            if(rows.length > 0){
-                let sql = "UPDATE products SET "
-
-                if(req.body.name){
-                    sql = sql + ` product_name='${req.body.name}'`;
-                }
-                if(req.body.price){
-                    sql = sql + ` product_price='${req.body.price}'`;
-                }
-                if(req.body.profit){
-                    sql = sql + ` price_profit='${req.body.profit}'`;
-                }
-                if(req.body.category){
-                    sql = sql + ` product_category='${req.body.category}'`;
-                }
-                sql = sql + ` WHERE id='${req.params.id}'`;
-
-                
-
-                
-                mysqlConnection.query(sql, (err, rows, fields)=>{
-                    if(!err){
+    if(req.body.hasOwnProperty('config')){
+        if(req.body.config.hasOwnProperty("username") && req.body.config.hasOwnProperty("password")){
+        knex('users').where({
+            username: req.body.config.username,
+            password:  req.body.config.password
+          }).select('type').then((data)=>{
+              if(data.length > 0 && data[0].type == 'admin'){
+                knex('products')
+                        .where({ id: req.params.id })
+                        .update({
+                            product_name: req.body.name,
+                            product_price: req.body.price,
+                            profit_percentage:req.body.profit,
+                            product_type: req.body.category
+                    }).then((data)=>{
                         res.json({
                             msg: "success",
                             data : "Successfully Updated"
-                        });
-                    }else{
-                        res.json({
-                            msg: "Database Error"
-                        });
-                    }
-                })
-
-            }else{
+                        })
+                    }) 
+              }
+              else{
                 res.json({
-                    msg: "error",
-                    data : "No such product found"
+                    msg:"Access Denied"
                 });
-            }
-        }else{
+              }
+          })
+        }
+        else{
             res.json({
-                msg: "Database Error"
+                msg:"Access Denied"
             });
         }
-    })
-    
+    }else{
+        res.json({
+            msg:"Access Denied"
+        });
+    }
+
     
     
 })
 
 Router.get('/mostSold', (req, res)=>{
-    mysqlConnection.query("SELECT * from products ORDER BY profit_percentage DESC ", (err, rows, fields)=>{
-        if(!err){
-            res.json({
-                msg: "success",
-                data : rows
-            });
-        }else{
-            res.json({
-                msg: "Database Error"
-            });
-        }
+    knex('products').orderBy('profit_percentage', 'desc').limit(5).then((data)=>{
+        res.json({
+            msg: "success",
+            data : data
+        });
     })
 })
 
