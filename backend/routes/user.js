@@ -3,6 +3,8 @@ const Router = express.Router();
 const knex = require('knex')(require('../knexfile'))
 const validator = require('validator');
 
+
+//authenticate user return: user_role
 Router.post('/auth', (req, res)=>{
     knex('users').where({
         username: req.body.username,

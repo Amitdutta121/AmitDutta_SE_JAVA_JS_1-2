@@ -5,7 +5,7 @@ const validator = require('validator');
 
 
 
-
+// GET all records method:GET, return: JSON array
 Router.get('/', (req, res)=>{
     knex.select().from('products').then((data)=>{
         res.json({
@@ -15,6 +15,8 @@ Router.get('/', (req, res)=>{
     })
 })
 
+
+// GET single product url:/singleProduct/:id method:GET, return: JSON array
 Router.get('/singleProduct/:id', (req, res)=>{
 
     knex('products').where('id', req.params.id).then((data)=>{
@@ -25,6 +27,7 @@ Router.get('/singleProduct/:id', (req, res)=>{
     })
 })
 
+// GET single product url:/:id method:DELETE, return: JSON array
 Router.delete('/:id', (req, res)=>{
     knex('products')
     .where('id', req.params.id)
@@ -38,6 +41,8 @@ Router.delete('/:id', (req, res)=>{
     })
 })
 
+
+//Add single product url:/addProduct method:POST, return: JSON array data {name: name, price:price, profit:profit, category:category, config:{username: username, password: password}}
 Router.post('/addProduct',(req, res)=>{
     if(req.body.hasOwnProperty('config')){
         if(req.body.config.hasOwnProperty("username") && req.body.config.hasOwnProperty("password")){
@@ -75,6 +80,7 @@ Router.post('/addProduct',(req, res)=>{
     }
     
 })
+//Edit single product url:/editProduct/:id method:POST, return: JSON array data {name: name, price:price, profit:profit, category:category, config:{username: username, password: password}}
 
 Router.post('/editProduct/:id', (req, res)=>{
 
@@ -120,7 +126,7 @@ Router.post('/editProduct/:id', (req, res)=>{
     
     
 })
-
+// GET modt dsole product (sort by profit_percentage DESC) url:/mostSold method:DELETE, return: JSON array
 Router.get('/mostSold', (req, res)=>{
     knex('products').orderBy('profit_percentage', 'desc').limit(5).then((data)=>{
         res.json({
