@@ -6,7 +6,7 @@ This is a project for sample ecommerce website with only Product CURD using reac
 ## How to run
 
 ```console
-npm init
+npm install
 ```
 Install all node dependencies
  for Backend install these dependencies;

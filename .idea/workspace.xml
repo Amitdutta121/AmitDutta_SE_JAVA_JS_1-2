@@ -19,11 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe20e604-1ecb-451f-aa1e-79db102afa3b" name="Default Changelist" comment="add comment on front-end files">
-      <change afterPath="$PROJECT_DIR$/ecommerce.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-    </list>
+    <list default="true" id="fe20e604-1ecb-451f-aa1e-79db102afa3b" name="Default Changelist" comment="Update readme.md and add database file." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1603417521658</updated>
       <workItem from="1603417522677" duration="154000" />
-      <workItem from="1603453108198" duration="2883000" />
+      <workItem from="1603453108198" duration="3352000" />
     </task>
     <task id="LOCAL-00001" summary="added backend with react">
       <created>1603453654410</created>
@@ -93,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603456095351</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Update readme.md and add database file.">
+      <created>1603456955744</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1603456955744</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -115,7 +118,8 @@
     <MESSAGE value="added backend with react" />
     <MESSAGE value="add comment on backend files" />
     <MESSAGE value="add comment on front-end files" />
-    <option name="LAST_COMMIT_MESSAGE" value="add comment on front-end files" />
+    <MESSAGE value="Update readme.md and add database file." />
+    <option name="LAST_COMMIT_MESSAGE" value="Update readme.md and add database file." />
   </component>
   <component name="WindowStateProjectService">
     <state x="836" y="422" width="983" height="196" key="Github.ShareDialog" timestamp="1603417581923">
@@ -130,9 +134,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1603455765109" />
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1603456099492">
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1603456961391">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603456099492" />
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603456961391" />
+    <state x="777" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603456900464">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603456900464" />
   </component>
 </project>
