@@ -5,6 +5,8 @@ import EditProduct from './EditProduct'
 import {Link} from "react-router-dom";
 import Swal from 'sweetalert2'
 
+
+//Dashboard page but with every product and CURD
 const Dashboard = ()=>{
 
     const [data , setData] = useState([]);

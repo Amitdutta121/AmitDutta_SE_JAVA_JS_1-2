@@ -1,6 +1,8 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
+
+//Header navigation
 const HeaderNav = ()=>{
     function userSignOut() {
         localStorage.clear();

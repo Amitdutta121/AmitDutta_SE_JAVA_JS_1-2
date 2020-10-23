@@ -5,13 +5,17 @@ import Swal from 'sweetalert2'
 import {useHistory} from "react-router-dom";
 
 
-
+//Create new product
 const CreateNewProduct = ()=>{
 
+    //react form hook
     const { register, handleSubmit, watch, errors } = useForm();
+    //use history for redirect
     let history = useHistory();
 
+    //form on submit data
     const onSubmit = (data,e) => {
+        //data builder
         let mainData = {
             name: data.name,
             price: data.price,
@@ -19,6 +23,7 @@ const CreateNewProduct = ()=>{
             category: data.category,
             config: JSON.parse(localStorage.getItem('userData')).config
         }
+        //Http request with axios to add product
         http.post('/addProduct',mainData).then(response=>{
             Swal.fire({
                 title: 'Product Created',

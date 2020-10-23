@@ -1,4 +1,6 @@
 import React from "react";
+
+// About page
 const About = ()=>{
     return(
         <>

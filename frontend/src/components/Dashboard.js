@@ -2,11 +2,14 @@ import React, {useEffect, useState} from 'react'
 import {Table} from "react-bootstrap";
 import Axios from "axios";
 
-
+//Dashboard page
 const Dashboard = ()=>{
+    //data hook
     const [data , setData] = useState([]);
 
+    //useEffect hook that will run on every render
     useEffect(() =>{
+        //Most sold data
         Axios.get("http://localhost:2999/products/mostSold").then((res)=>{
             console.log(res.data.data)
             setData(res.data.data)

@@ -1,11 +1,10 @@
 import React from 'react'
-import {Table} from "react-bootstrap";
 import {Link, useHistory} from "react-router-dom";
 import {useForm} from "react-hook-form";
-import http from "../http-common";
 import {users} from "../http-common";
-import  { Redirect } from 'react-router-dom'
 
+
+//Login Page
 const Login = (props)=>{
     const { register, handleSubmit, watch, errors } = useForm();
     let history = useHistory();

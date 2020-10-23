@@ -1,4 +1,6 @@
 import React from "react";
+
+//Static page for error and get redirect into login page
 const PleaseLogin = ()=>{
     return(
         <>

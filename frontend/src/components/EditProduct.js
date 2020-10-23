@@ -4,11 +4,14 @@ import http from '../http-common'
 import {useParams} from "react-router";
 import Swal from 'sweetalert2'
 
-
+//Edit product Page
 const EditProduct = (props)=>{
+    //get the params {/:id}
     let { id } = useParams();
+    //use form hook
     const { register, handleSubmit, setValue , errors } = useForm();
 
+    //Runon every render
     useEffect(()=>{
         http.get(`/singleProduct/${id}`).then(response=>{
             const responseData = response.data.data[0];
@@ -19,8 +22,9 @@ const EditProduct = (props)=>{
         })
     },[])
 
+    //form data submit
     const onSubmit = (data)=>{
-
+        //data builder
         let mainData = {
             name: data.name,
             price: data.price,
@@ -29,6 +33,7 @@ const EditProduct = (props)=>{
             config: JSON.parse(localStorage.getItem('userData')).config
         }
 
+        //Call api to edit the product
         http.post(`/editProduct/${id}`,mainData).then(response=>{
             Swal.fire({
                 title: 'Product Edited',
