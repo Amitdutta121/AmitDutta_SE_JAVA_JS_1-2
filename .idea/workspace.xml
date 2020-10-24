@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe20e604-1ecb-451f-aa1e-79db102afa3b" name="Default Changelist" comment="Update readme.md and add database file." />
+    <list default="true" id="fe20e604-1ecb-451f-aa1e-79db102afa3b" name="Default Changelist" comment="Update readme.md" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,6 +67,7 @@
       <updated>1603417521658</updated>
       <workItem from="1603417522677" duration="154000" />
       <workItem from="1603453108198" duration="3352000" />
+      <workItem from="1603468332190" duration="638000" />
     </task>
     <task id="LOCAL-00001" summary="added backend with react">
       <created>1603453654410</created>
@@ -96,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603456955744</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update readme.md">
+      <created>1603468358101</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603468358101</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,6 +120,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -119,7 +128,8 @@
     <MESSAGE value="add comment on backend files" />
     <MESSAGE value="add comment on front-end files" />
     <MESSAGE value="Update readme.md and add database file." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update readme.md and add database file." />
+    <MESSAGE value="Update readme.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update readme.md" />
   </component>
   <component name="WindowStateProjectService">
     <state x="836" y="422" width="983" height="196" key="Github.ShareDialog" timestamp="1603417581923">
@@ -134,10 +144,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1603455765109" />
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1603456961391">
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1603468368279">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="249" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603456961391" />
+    <state x="552" y="249" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603468368279" />
     <state x="777" y="430" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603456900464">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

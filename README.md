@@ -1,4 +1,7 @@
 This is a project for sample ecommerce website with only Product CURD using react and Express
+## login credentials
+username: admin
+password: admin
 ## Structure
 
 1) Frontend: Frontend contains all the code written in React js.
